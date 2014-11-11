@@ -16,8 +16,10 @@ gem 'devise'
 gem 'pundit'
 gem 'stripe'
 gem 'redcarpet'
-gem 'haml-rails'
+
 gem 'figaro', '1.0'
+
+ gem 'bootstrap-sass', '~> 3.1.1'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.2'
 
