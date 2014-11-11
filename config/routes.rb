@@ -1,8 +1,10 @@
 Collabopedia::Application.routes.draw do
+  resources :wikis
   devise_for :users
-  get "welcome/index"
-  get "welcome/about"
-   root to: 'welcome#index'
+  #get "welcome/index"
+  #get "welcome/about"
+  get 'about' => 'welcome#about'
+  root to: 'welcome#index'
  end 
  
   # The priority is based upon order of creation: first created -> highest priority.
