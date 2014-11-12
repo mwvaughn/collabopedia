@@ -12,9 +12,7 @@
       <ul class="nav nav-tabs">
         <li><%= link_to "Collabopedia", root_path %></li>
         <li><%= link_to "About", about_path %></li>
-        <% if current_user %><li>
-        <%= link_to "My Wiki Confabs", wikis_path %></li>
-        <% end %>
+        <li><%= link_to "Wiki Confabs", wikis_path %></li>
         <% if current_user %>
         <li><%= link_to "Create a New Wiki Confab", new_wiki_path %></li>
       <% end %>  

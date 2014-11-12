@@ -4,4 +4,12 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
   has_many :wikis       
-end
+
+  def user?
+    user == 'user'
+  end 
+
+  def premium_user? 
+    premium_user = 'premium user'
+  end
+end 
