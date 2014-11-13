@@ -1,11 +1,16 @@
 Collabopedia::Application.routes.draw do
+  #get "charges/new"
+  #get "charges/create"
   resources :wikis
   devise_for :users
+  resources :charges, only: [:new, :create]
+
   #get "welcome/index"
   #get "welcome/about"
   get 'about' => 'welcome#about'
   root to: 'welcome#index'
- end 
+
+ end
  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

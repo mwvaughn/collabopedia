@@ -1,4 +1,46 @@
-<h1>Collabopedia</h1>
+
+<br/>
+<div class="jumbotron">
+  <h1>Collaopedia</h1>
+  <p>Collabopedia is a confabulous resource for sharing ideas with your friends!</p>
+  <p> Try Collabopedia out today! </p>
+  <% unless current_user %>  
+  <p>
+      <%= link_to "Sign In", new_user_session_path, class: 'btn btn-primary' %> or 
+      <%= link_to "Sign Up", new_user_registration_path, class: 'btn btn-primary' %> for a free account!
+  <% end %>    
+  
+</div>
+<div>
+    <h3>
+     <center>
+      <p> For the  more  daring amoung you, there's Collabopedia's Premium Tier services!</p>
+      <p>  Be redundant to your  heart's content! </p>
+      <p>  Simply sign up for a free account for more details.</p> 
+     </center>
+    </h3>
+
+     <% if current_user %>
+     <center>
+      <%= link_to "Create a Premium Account ", new_charge_path, class: 'btn btn-success' %>
+     </center>  
+    <% end %>
+</div>
+
+<div class="row">
+  <div class="col-md-4">
+    <h2>Collaborate </h2>
+    <p>Collaborate fully with everyone you meet!</p>
+  </div>
+  <div class="col-md-4">
+    <h2>Disagree </h2>
+    <p>We'll provide the  pillows! </p>
+  </div>
+  <div class="col-md-4">
+    <h2>Confabulate</h2>
+    <p>Confabulate with others who posses a profound sense of  humor. </p>
+  </div>
+</div>
 
 
 

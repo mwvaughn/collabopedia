@@ -1,0 +1,15 @@
+<%= form_tag charges_path do %>
+   <h4>Click the button to pay a small fee to upgrade to Premium. </h4>
+   <h5>Premium services include:</h5>
+    <ol>
+      <li> Create Private Wiki Confabs</li>
+      <li> Create Private Wiki Confabs</li>
+      <li> Create Private Wiki Confabs</li>
+      <li> Create Private Wiki Confabs</li>
+      <li> Redundancy</li>
+    </ol>
+
+ <br>
+
+  <script class='stripe-button' src="https://checkout.stripe.com/checkout.js" data-key="<%= @stripe_btn_data[:key] %>" data-amount=<%= @stripe_btn_data[:amount] %> data-description=="<%= @stripe_btn_data[:description] %>" ></script>
+ <% end %>
