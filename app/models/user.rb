@@ -10,6 +10,6 @@ class User < ActiveRecord::Base
   end 
 
   def premium_user? 
-    premium_user = 'premium user'
+    premium_user == 'premium user'
   end
 end 
