@@ -8,9 +8,11 @@
        <h4 class="media-heading">
          <%= link_to wiki.title, wiki %>
        </h4>
+       <% if current_user %>
         <small>
-          submitted by <%= wiki.user.email %> <%= time_ago_in_words(wiki.created_at) %> ago
+          Submitted by <%= current_user.email%>  <%= time_ago_in_words(wiki.created_at) %> ago
         </small>
+       <% end %> 
 
      </div>
    </div>
