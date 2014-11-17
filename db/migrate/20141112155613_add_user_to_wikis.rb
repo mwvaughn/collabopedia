@@ -1,4 +1,4 @@
-class AddUserToWikis < ActiveRecord::Migration
+class AddUsersToWikis < ActiveRecord::Migration
   def change
     add_column :wikis, :user_id, :integer
     add_index :wikis, :user_id

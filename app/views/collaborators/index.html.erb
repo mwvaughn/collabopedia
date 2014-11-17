@@ -1,0 +1,24 @@
+<h1> Collaborators </h1>
+Should be a list of  collaborators on the specific Wiki eventually? 
+    <ul>
+      <% @users.each do |user| %> 
+        <li>
+          <%= user.email %>
+            <% if user.is_owner_of? @wiki %>
+              <%= "Owner"  %>
+            <% #elsif user.is_a_collaborator? @wiki %> 
+            <% elsif user.collaborators.find_by_wiki_id(@wiki.id) != nil %>
+              <%= link_to 'Remove', wiki_collaborator_path(@wiki, user.collaborators.find_by_wiki_id(@wiki.id)), method: :delete, confirmation: 'Are you sure?', class: 'btn btn-warning btn-sm' %>
+            <% else %>
+              <%= link_to 'Add', new_wiki_collaborator_path(@wiki, user_id: current_user.id), class: 'btn btn-success btn-sm' %>
+            <% end %>
+        </li>
+      <% end %> 
+    </ul>   
+
+  <div>
+    <%= link_to " Back to Wikis", wikis_path, class: 'btn btn-success'  %>
+  </div>
+
+  
+

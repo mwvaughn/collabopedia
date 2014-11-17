@@ -1,8 +1,12 @@
 Collabopedia::Application.routes.draw do
   #get "charges/new"
   #get "charges/create"
-  resources :wikis
+
+  resources :wikis do
+    resources :collaborators 
+  end 
   devise_for :users
+
   resources :charges, only: [:new, :create]
 
   #get "welcome/index"
