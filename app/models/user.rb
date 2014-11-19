@@ -8,6 +8,8 @@ class User < ActiveRecord::Base
   has_many :wikis, through: :collaborators
   has_many :collaborators  
 
+  
+
   def set_default_role 
     self.role ||= :User
   end  
@@ -18,6 +20,6 @@ class User < ActiveRecord::Base
 
   def is_a_collaborator?(wiki)
     #false
-    true
+    false
   end
 end 

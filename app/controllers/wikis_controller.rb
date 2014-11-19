@@ -14,9 +14,13 @@ class WikisController < ApplicationController
     authorize @wiki 
   end
    def create
-     @wiki = current_user.wikis.build(params.require(:wiki).permit(:title, :body))
+     #@wiki = Wiki.new(params.require(:wiki).permit(:title, :body))
+      @wiki = current_user.wikis.build(params.require(:wiki).permit(:title, :body))
+      @wiki.user_id = current_user.id
+
+
      authorize @wiki 
-     if @wiki.save
+     if @wiki.save!
        flash[:notice] = "Wiki was saved."
        redirect_to @wiki
      else
