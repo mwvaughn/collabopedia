@@ -5,8 +5,10 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
-  has_many :wikis, through: :collaborators
+  has_many :wikis
   has_many :collaborators  
+  has_many :cowikis, through: :collaborators
+  
 
   def set_default_role 
     self.role ||= :User
@@ -17,7 +19,6 @@ class User < ActiveRecord::Base
   end 
 
   def is_a_collaborator?(wiki)
-    #false
-    true
+    false
   end
 end 
