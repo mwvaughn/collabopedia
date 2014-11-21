@@ -10,7 +10,7 @@ class WikisController < ApplicationController
   end
 
   def new
-    @wiki = Wiki.create
+    @wiki = Wiki.new
     authorize @wiki 
   end
    def create
@@ -19,7 +19,7 @@ class WikisController < ApplicationController
       @wiki.user_id = current_user.id
 
 
-     authorize @wiki 
+      authorize @wiki 
      if @wiki.save!
        flash[:notice] = "Wiki was saved."
        redirect_to @wiki
