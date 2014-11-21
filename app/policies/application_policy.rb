@@ -10,7 +10,7 @@ class ApplicationPolicy
     true
   end
 
-  def show?
+  def show
     scope.where(:id => record.id).exists?
   end
 
@@ -23,8 +23,7 @@ class ApplicationPolicy
   end
 
   def update?
-    user.present? && (record.user == user )
-  end
+    user.present?
 
   def edit?
     update?
@@ -38,17 +37,5 @@ class ApplicationPolicy
       record.class
   end
 
-  class Scope
-    attr_reader :user, :scope
-
-    def initialize(user, scope)
-      @user = user
-      @scope = scope
-    end
-
-    def resolve
-      scope
-    end
-  end
-end
-
+end   
+end 
