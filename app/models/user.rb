@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
   
 
   def set_default_role 
-    self.role ||= :User
+    self.role ||= :user
   end
 
   def admin?
@@ -25,9 +25,7 @@ class User < ActiveRecord::Base
   end
 
   def premium? 
-    if user.paid == 'true'
       role == 'premium'
-    end   
   end   
 
   def is_owner_of?(wiki)

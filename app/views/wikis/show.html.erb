@@ -1,5 +1,5 @@
 <h1><%= markdown @wiki.title %></h1>
-
+  <% if current_user %>
   <%= link_to "Edit", edit_wiki_path(@wiki), class: 'btn btn-success' %>
 
   <% if @wiki.collaborators %>
@@ -10,3 +10,4 @@
   <div class="col-md-8">
     <p><%= markdown @wiki.body %></p>
  </div>
+<% end%> 
