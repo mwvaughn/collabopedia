@@ -25,16 +25,7 @@ class User < ActiveRecord::Base
   end
 
   def premium? 
-    #if user.paid 
+
       role == 'premium'
-    #end   
-  end   
-
-  def is_owner_of?(wiki)
-    wiki.user_id == id
-  end 
-
-  def is_a_collaborator?(wiki)
-    false
-  end
+  end     
 end 
