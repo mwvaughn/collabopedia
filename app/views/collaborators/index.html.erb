@@ -4,13 +4,17 @@ Should be a list of collaborators
     <ul>
       <% @users.all.each do |user| %> 
         <li>
-          <%= user.email %>
-          <%= link_to 'Add', new_wiki_collaborator_path(@wiki, user_id: current_user.id), class: 'btn btn-success btn-sm' %>
+          <%if current_user %>
+            <%= user.email %>
+            <%= link_to 'Add', new_wiki_collaborator_path(@wiki, user_id: current_user.id), class: 'btn btn-success btn-sm' %>
+          <% else %>
+            <h1> You do not have permission to view this collaborator.  </h1>  
+          <% end %>  
         
          <%# if user.collaborators.is_owner_of? @wiki %>
              <%#= link_to "Owner", class: 'btn btn-success' %>
               <%#= link_to 'Remove', wiki_collaborator_path(@wiki,collaborator ), method: :delete, confirmation: 'Are you sure?', class: 'btn btn-warning btn-sm' %>
-         <% end %>
+      <% end %>
         </li>
       </ul>
     <%# end %>
