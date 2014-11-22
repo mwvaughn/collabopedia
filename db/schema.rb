@@ -11,8 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 20141118211800) do
+ActiveRecord::Schema.define(version: 20141122173047) do
 
   create_table "collaborators", force: true do |t|
     t.integer  "user_id"
@@ -41,7 +40,6 @@ ActiveRecord::Schema.define(version: 20141118211800) do
     t.datetime "updated_at"
     t.string   "role"
     t.datetime "paid"
-
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
@@ -53,8 +51,10 @@ ActiveRecord::Schema.define(version: 20141118211800) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+    t.boolean  "private"
   end
 
+  add_index "wikis", ["private"], name: "index_wikis_on_private"
   add_index "wikis", ["user_id"], name: "index_wikis_on_user_id"
 
 end
