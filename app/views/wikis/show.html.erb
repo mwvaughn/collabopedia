@@ -1,7 +1,7 @@
 <h1><%= markdown @wiki.title %></h1>
-  <%if policy(@wiki).edit? %>
-    <%= link_to "Edit", edit_wiki_path(@wiki), class: 'btn btn-success' %>
-  <% end %>
+
+  <%= link_to "Edit", edit_wiki_path(@wiki), class: 'btn btn-success' %>
+
   <% if @wiki.collaborators %>
     <%= link_to "Collaborators",  wiki_collaborators_path(@wiki), class: 'btn btn-default' %>
   <% end %>
