@@ -18,6 +18,7 @@ class WikisController < ApplicationController
      #@wiki = Wiki.new(params.require(:wiki).permit(:title, :body))
       @wiki = current_user.wikis.build(params.require(:wiki).permit(:title, :body, :private))
       @wiki.user_id = current_user.id
+      
       authorize @wiki 
       
       if @wiki.save!
@@ -45,4 +46,11 @@ class WikisController < ApplicationController
        render :edit
       end
   end
+
+  def private
+    if @wiki.update_attributes(params[:private]) && current_user.admin? || curent_user.premium? 
+      redirect_to @wiki
+    end 
+
 end
+end 

@@ -8,4 +8,5 @@ class Wiki < ActiveRecord::Base
   def owner
     user
   end
+  
 end
