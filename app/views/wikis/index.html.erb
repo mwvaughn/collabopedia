@@ -4,17 +4,11 @@
 <% end %>
 
 <% @wikis.each do |wiki| %>
-<% if current_user.user? || current_user.admin? || current_user.premium?  %>
   <div class="media">
      <div class="media-body">
        <h4 class="media-heading">
         <%= link_to wiki.title, wiki  %> 
-<%# elsif current_user.premium? %>
-  <div class="media">
-     <div class="media-body">
-       <h4 class="media-heading">
-        <%#= link_to private_wikis_path, wiki  %>    
-<%# end %>  
+
        </h4>
         <small>
           Submitted by <%= wiki.user.email %><%= time_ago_in_words(wiki.created_at) %> ago
@@ -23,4 +17,4 @@
      </div>
    </div>
 <% end %>
-<% end %>
+

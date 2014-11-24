@@ -8,5 +8,11 @@ class Wiki < ActiveRecord::Base
   def owner
     user
   end
-  
-end
+  def private
+      if user.premium? || user.admin?
+        scope.all
+      else
+        scope.where(:private => true)
+      end
+    end
+  end   

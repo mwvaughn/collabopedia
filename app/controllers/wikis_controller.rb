@@ -2,23 +2,25 @@ class WikisController < ApplicationController
   def index
     @wikis = Wiki.all
     authorize @wikis
+    
   end
 
   def show
    @wiki = Wiki.find(params[:id])
     authorize @wiki 
+   
   end
 
   def new
     @wiki = Wiki.new
     authorize @wiki 
+    
   end
    
   def create
      #@wiki = Wiki.new(params.require(:wiki).permit(:title, :body))
       @wiki = current_user.wikis.build(params.require(:wiki).permit(:title, :body, :private))
       @wiki.user_id = current_user.id
-      
       authorize @wiki 
       
       if @wiki.save!
@@ -33,11 +35,13 @@ class WikisController < ApplicationController
   def edit
      @wiki = Wiki.find(params[:id])
      authorize @wiki
+     
   end
 
   def update
      @wiki = Wiki.find(params[:id])
      authorize @wiki
+     
      if @wiki.update_attributes(params.require(:wiki).permit(:title, :body, :private))
        flash[:notice] = "Wiki was updated."
        redirect_to @wiki
@@ -48,9 +52,10 @@ class WikisController < ApplicationController
   end
 
   def private
-    if @wiki.update_attributes(params[:private]) && current_user.admin? || curent_user.premium? 
-      redirect_to @wiki
+    if @wiki.update_attributes(params[:private]) 
+      flash[:notice] = "Wiki is Private."
+       redirect_to @wiki 
+    end    
+      
     end 
-
-end
 end 

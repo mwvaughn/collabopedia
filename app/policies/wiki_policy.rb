@@ -10,6 +10,9 @@ class WikiPolicy < ApplicationPolicy
   end 
   def edit? 
     true
-  end   
-  
+  end  
+  def private?
+    user.premium? || user.admin?
+  end 
+ 
 end
