@@ -1,5 +1,5 @@
 <h1> Collaborators </h1>
-Should be a list of collaborators 
+
     <%# add an each loop again for list of all users tochoose from, in order to "add"  to  the  wiki %>
     <ul>
       <% @users.all.each do |user| %> 
@@ -8,6 +8,7 @@ Should be a list of collaborators
             <%= user.email %>
             <%= link_to 'Add', new_wiki_collaborator_path(@wiki, user_id: current_user.id), class: 'btn btn-success btn-sm' %>
           <% else %>
+
             <h1> You do not have permission to view this collaborator.  </h1>  
           <% end %>  
         
@@ -34,7 +35,7 @@ Should be a list of collaborators
 
       
   <div>
-    <%#= link_to " Back to Wikis", wikis_path, class: 'btn btn-success'  %>
+    <%= link_to " Back to Wikis", wikis_path, class: 'btn btn-success'  %>
   </div>
 
   

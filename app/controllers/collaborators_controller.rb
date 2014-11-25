@@ -18,10 +18,11 @@ class CollaboratorsController < ApplicationController
   def create
     @wiki = Wiki.find(params[:wiki_id])
     @collaborator = @wiki.collaborators.build (params[:email])
-    @collaborator.wiki = @wiki
-    @new_collaborator =Collaborator.new 
-    authorize @wiki 
-    if @collaborator.save
+    #@collaborator.wiki = @wiki
+    #@new_collaborator =Collaborator.new 
+    #authorize @wiki 
+    #if @collaborator.save
+    if @wiki.update_attributes(params[:collaborator])
       #how do I update the show page with the saved wiki collaborator? IOW, how to comnnect them?  
       flash[:notice] = "Collaborator was created."
       

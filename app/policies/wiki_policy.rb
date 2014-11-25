@@ -1,7 +1,8 @@
 class WikiPolicy < ApplicationPolicy
-  def owner
-    post.user_id == user.id
-  end
+
+  #def owner
+   # wiki.user_id == user.id
+  #end
   def index? 
     true
   end 
@@ -23,9 +24,9 @@ class WikiPolicy < ApplicationPolicy
   def update?
     edit? 
   end 
-   def edit?
-    owner
-  end     
+  #def edit?
+  #  owner
+  #end     
   def private?
     user.premium? || user.admin?
   end 
