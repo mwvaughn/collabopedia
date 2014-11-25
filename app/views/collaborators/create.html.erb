@@ -1,9 +1,9 @@
 <h1> Add Collaborator </h1>
    <%= form_for [ @wiki, @collaborator] do |form| %>
-     <%#= form.label :name %>
-     <%#= form.text_field :email %>
+     <%= form.label :name %>
+     <%= form.label :email %>
      <p>
-     Add collaborator <%= @user%> to wiki <%= @wiki.title %> ?
+     <%= @user.email%> will be  added as a collaborator to wiki <%= @wiki.title %> ?
      <%#= form.wiki_id hidden:true %>
      <%#= form.user_id hidden:true %>
    </p>

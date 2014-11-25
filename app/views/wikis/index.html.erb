@@ -8,10 +8,11 @@
      <div class="media-body">
        <h4 class="media-heading">
         <%= link_to wiki.title, wiki  %> 
+        <%= link_to "Collaborators",  wiki_collaborators_path(@wiki), class: 'btn btn-success' %>
 
        </h4>
         <small>
-          Submitted by <%= wiki.user.email %><%= time_ago_in_words(wiki.created_at) %> ago
+          Submitted <%#= wiki.user.email %><%= time_ago_in_words(wiki.created_at) %> ago
         </small>
 
      </div>

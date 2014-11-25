@@ -1,7 +1,13 @@
 <h1> Collaborator list </h1>
 
-  Should be  list of  collaborators on the specific wiki eventually?  
-  <%#code for list of  collaborators per wiki %>
+  <ul>
+      <% @users.all.each do |user| %> 
+        <li>
+          <%if @wiki.collaborator(@wiki) do  %>
+            <%= user.email %>
+            <%= link_to 'remove', new_wiki_collaborator_path(@wiki, user_id: current_user.id), class: 'btn btn-success btn-sm' %>
+           <% end %>    
+  
   <div>
     <%= link_to " Back to Wikis", wikis_path, class: 'btn btn-success'  %>
   </div>

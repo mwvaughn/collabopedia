@@ -6,4 +6,7 @@ class Collaborator < ActiveRecord::Base
   def is_owner_of?(wiki)
     wiki.user_id == id
   end 
+  def add
+    #add collaborator to wiki code
+  end   
 end
