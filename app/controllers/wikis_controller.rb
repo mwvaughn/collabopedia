@@ -1,7 +1,11 @@
 class WikisController < ApplicationController
   def index
-    @wikis = Wiki.all
-    authorize @wikis
+
+    if current_user
+      @wikis = Wiki.public_only.all + current_user.wikis.private_only.all
+      # @wikis += current_user.wikis_that_i_collaborate.all
+    end
+    # authorize @wikis
     
   end
 

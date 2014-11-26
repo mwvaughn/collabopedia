@@ -12,6 +12,7 @@
        </h4>
         <small>
           Submitted <%= time_ago_in_words(wiki.created_at) %> ago
+          <%= "[PRIVATE]" if wiki.private %>
         </small>
 
      </div>
