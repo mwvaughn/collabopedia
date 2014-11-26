@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   has_many :wikis
   has_many :collaborators  
   has_many :cowikis, through: :collaborators
+  has_many :privates
   
 
   

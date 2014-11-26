@@ -56,10 +56,12 @@ class WikisController < ApplicationController
   end
 
   def private
-    if @wiki.update_attributes(params[:private]) 
-      flash[:notice] = "Wiki is Private."
-       redirect_to @wiki 
+    @wiki = Wiki.find(params[:id])
+    @wiki.update_attributes(params.require(:wiki).permit(:title, :body, :private))
+
+    #if @wiki.update_attributes(params[:private]) 
+     # flash[:notice] = "Wiki is Private."
+    redirect_to @wiki 
     end    
       
-    end 
 end 

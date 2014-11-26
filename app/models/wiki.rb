@@ -2,7 +2,8 @@ class Wiki < ActiveRecord::Base
   belongs_to :user #:owner, class_name: "User", :foreign_key => "user_id"
   has_many :collaborators
   has_many :users, through: :collaborators, source: :wiki
-
+  has_many :privates
+  
   default_scope { order('created_at DESC') }
   scope :public_only, -> { where( private: nil ) }
   scope :private_only, -> { where( private: true ) }
@@ -12,7 +13,7 @@ class Wiki < ActiveRecord::Base
     user
   end
 
-
+  
 
   # def self.private_only
   #   if user.admin?
