@@ -21,28 +21,22 @@
          <%= f.text_area :body, rows: 8, class: 'form-control', placeholder: "Enter wiki body" %>
        </div>
        <div class="form-group">
-         <%= f.submit "Save", class: 'btn btn-success' %>
-       </div>
-     <% end %>
-      <div>
           <% if current_user.premium?  || current_user.admin? %>
             <%#= check_box_tag(:private) %>
             <%#= label_tag(:private, "Make this Wiki private") %>
              
-            <%= form_for(@wiki) do |f| %>
+            <%#= form_for(@wiki) do |f| %>
               <div class="field">
                 <%= f.label "Make This Wiki Private" %> <br />
                 <%#= fields_for "@wiki[wiki_attributes][]", :private, new: true do |form| %>
                 <%= f.check_box :private %> <br />
               </div>
-            <% end %>  
-      </div>
-          
-          <% end %>
-      </div> 
-       
-
-     
+            <% end %> 
+            </div>
+         <div class="form-group">
+           <%= f.submit "Save", class: 'btn btn-success' %>
+         </div>
+       <% end %>       
 
    </div>
  </div>
