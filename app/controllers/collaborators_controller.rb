@@ -17,26 +17,35 @@ class CollaboratorsController < ApplicationController
   end
   def create
     @wiki = Wiki.find(params[:wiki_id])
-    @collaborator = @wiki.collaborators.build (params[:email])
+    @collaborator = @wiki.collaborators.build(params.require(:collaborator).permit(:user_id))
     #@collaborator.wiki = @wiki
     #@new_collaborator =Collaborator.new 
     #authorize @wiki 
-    #if @collaborator.save
-    if @wiki.update_attributes(params[:collaborator])
+    if @collaborator.save
       #how do I update the show page with the saved wiki collaborator? IOW, how to comnnect them?  
       flash[:notice] = "Collaborator was created."
       
     else
       flash[:error] = "There was an error saving. Please try again."
     end
-    #redirect_to wiki_collaborator_path(@wiki, collaborators) ? 
+    redirect_to wiki_collaborators_path(@wiki)
+  end
 
   def Update
-    
-   end
+  end
    
    
   def destroy
+    @wiki = Wiki.find(params[:wiki_id])
+    @collaborator = Collaborator.find(params[:id])
+
+    if @collaborator.destroy
+      flash[:notice] = "Collaborator was destroyed."
+    else
+      flash[:error] = "There was an error saving. Please try again." 
+    end
+
+    redirect_to wiki_collaborators_path(@wiki)
   end   
-end
+
 end 

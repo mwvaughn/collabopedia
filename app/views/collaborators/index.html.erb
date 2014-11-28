@@ -10,9 +10,9 @@
               <%# collaborator = @wiki.collaborators.find_by_user_id user.id %>
               <% collaborator = @wiki.collaborators.select {|c| c.user_id == user.id }.first %>
 
-              <%= link_to 'Remove', wiki_collaborator_path(collaborator), method: :delete, class: 'btn btn-success btn-sm' %>
+              <%= link_to 'Remove', wiki_collaborator_path(@wiki,collaborator), method: :delete, class: 'btn btn-warning btn-sm' %>
             <% else %>
-              <%= link_to 'Add', new_wiki_collaborator_path(@wiki, user_id: current_user.id), class: 'btn btn-success btn-sm' %>
+              <%= link_to 'Add', new_wiki_collaborator_path(@wiki, user_id: user.id), class: 'btn btn-success btn-sm' %>
             <% end %>
           <% else %>
 
